@@ -1,6 +1,6 @@
 {
-  "name": "chat",
-  "homepage": "https://krasnobokydima.github.io/chat",
+  "name": "test-chat",
+  "homepage": "https://krasnobokydima.github.io/test-chat",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
