@@ -8,8 +8,6 @@ import { ConversationProvider } from '../contexts/ConversationProvider';
 export const App = () => {
   const [personId, setPersonId] = useLocalStorage('id', 0)
 
-  console.log(personId);
-
   const dashboard = (
     <ContactProvider>
       <ConversationProvider>

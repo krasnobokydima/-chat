@@ -18,13 +18,19 @@ export function ConversationProvider({ children }) {
 
   const formattedConversations = conversations.map(conversation => {
     const recipiens = conversation.recipiens
-      .map(userId => contacts.find(contact => contact.id === userId))
+      .map(userId => contacts.find(contact => contact.id === userId) || userId)
 
     return {...conversation, recipiens};
   })
 
+
+  const value = {
+    conversations: formattedConversations,
+    createConversations
+  }
+
   return (
-    <ConversationContext.Provider value={{ conversations, createConversations }}>
+    <ConversationContext.Provider value={value}>
       {children}
     </ConversationContext.Provider>
   )

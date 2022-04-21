@@ -4,14 +4,17 @@ import { useConversations } from '../contexts/ConversationProvider'
 
 export default function Conversations() {
   const { conversations } = useConversations()
-
-  console.log(conversations)
  
   return (
     <ListGroup variant="flush">
-      {conversations.map(conversation => (
-        <ListGroup.Item>
-          1
+      {conversations.map((conversation, index) => (
+        <ListGroup.Item
+          key={index}
+          action
+          // active={.selected}
+          // onClick={handleConversation}
+        >
+        {conversation.recipiens.map(p => p.name).join(', ')}
         </ListGroup.Item>
       ))}
     </ListGroup>
