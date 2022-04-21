@@ -28,7 +28,7 @@ export function Sidebar( { id }) {
         activeKey={activeKey}
         onSelect={setActiveKey}
       >
-        <Nav variant="tabs" className="justify-content-center">  
+        <Nav variant="tabs" className="justify-content-center" style={{cursor: 'pointer'}}>  
           <Nav.Item>
             <Nav.Link eventKey={CONVERSATION_KEY}>Conversations</Nav.Link>
           </Nav.Item>

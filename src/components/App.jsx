@@ -10,7 +10,7 @@ export const App = () => {
 
   const dashboard = (
     <ContactProvider>
-      <ConversationProvider>
+      <ConversationProvider personId={personId}>
         <Dashboard id={personId} setId={setPersonId} />
       </ConversationProvider>
     </ContactProvider>
