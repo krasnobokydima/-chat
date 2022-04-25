@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import OpenConversation from "./OpenConversation";
-import { Sidebar } from "./Sidebar";
+import { Sidebar } from "./Sidebar/Sidebar";
 import { useConversations } from '../contexts/ConversationProvider';
 
 export function Dashboard({ id, setId }) {
@@ -9,13 +9,8 @@ export function Dashboard({ id, setId }) {
 
 	return (
     <div className="d-flex justify-content-between">
-      <div style={{height: '100vh'}} className="d-flex">
-        <Sidebar id={id} />
-      </div>
+      <Sidebar id={id} />
       {selectedConversation && <OpenConversation />}
-      <div>
-        <Button onClick={() => {setId(0)}}>Remove</Button>
-      </div>
     </div>
   );
 }

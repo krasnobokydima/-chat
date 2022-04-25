@@ -14,20 +14,26 @@ export function ConversationProvider({ children, personId }) {
   const { contacts } = useContacts();
 
   function createConversations(recipients) {
-    setConversations((prevConversations) => [...prevConversations, { recipients, message: [], selected: false }])
+    setConversations((prevConversations) => [...prevConversations, { recipients, messages: [], selected: false }])
   }
-
 
   const formattedConversations = conversations.map((conversation, index) => {
     const recipients = conversation.recipients.map(userId => contacts
       .find(contact => contact.id === userId) || userId)
 
-    // const message = conversation.message.map(userId => contacts
-    //   .find(contact => contact.id === userId) || userId)
+    const messages = conversation.messages.map(message => {
+      const contact = contacts
+        .find(contact => contact.id === message.sender) || message.sender
+      
+      const senderName = contact.name || message.sender
+      const fromMe = message.sender === personId; 
+      
+      return {...message, senderName, fromMe}
+    })
 
       const selected = index === selectConversationIndex;
 
-    return {...conversation, recipients, selected};
+    return {...conversation, recipients, selected, messages};
   })
 
   const addMessageToConversation = ({recipients, text, sender}) => {
@@ -42,7 +48,7 @@ export function ConversationProvider({ children, personId }) {
 
             return {
               ...conversation,
-              message: [...conversation.message, newMessage],
+              messages: [...conversation.messages, newMessage],
             }
           }
 
@@ -53,7 +59,7 @@ export function ConversationProvider({ children, personId }) {
         return newConversations
       } else {
         return [
-          ...prevConversations, { recipients, message: [newMessage] },
+          ...prevConversations, { recipients, messages: [newMessage] },
         ]
       }
     })

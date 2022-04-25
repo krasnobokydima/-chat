@@ -1,7 +1,7 @@
 import { Form, Modal, Button } from 'react-bootstrap'
 import React, { useRef } from 'react'
 
-import { useContacts } from '../contexts/ContextProvider'
+import { useContacts } from '../../contexts/ContextProvider'
 
 export default function NewPersonModal({ modalClose }) {
   const refID = useRef();

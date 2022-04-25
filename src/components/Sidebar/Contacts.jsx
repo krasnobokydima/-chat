@@ -1,6 +1,6 @@
 import React from 'react'
 import { ListGroup } from 'react-bootstrap'
-import { useContacts } from '../contexts/ContextProvider';
+import { useContacts } from '../../contexts/ContextProvider';
 
 export default function Contacts() {
   const { contacts } = useContacts();

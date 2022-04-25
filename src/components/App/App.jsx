@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLocalStorage } from '../hooks/useLocalStorage';
-import Login from './Login';
-import { Dashboard } from './Dashboard';
-import { ContactProvider } from '../contexts/ContextProvider'
-import { ConversationProvider } from '../contexts/ConversationProvider';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import Login from '../Login';
+import { Dashboard } from '../Dashboard';
+import { ContactProvider } from '../../contexts/ContextProvider'
+import { ConversationProvider } from '../../contexts/ConversationProvider';
 
 export const App = () => {
   const [personId, setPersonId] = useLocalStorage('id', 0)
