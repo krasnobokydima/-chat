@@ -1,7 +1,12 @@
 $icon-size: 50px;
-$backgroun-main: #dadada;
-$backgroun-message: #0d6efd;
-$color-grey: grey;
+$backgroun-main: #f3f3f3;
+$backgroun-secondary: rgb(234, 234, 234);
+$backgroun-Pr-message: #e7e7e7;
+$backgroun-Sc-message: #3d4456;
+
+
+$color-grey: rgb(180, 180, 180);
+
 
 .sidebar {
   width: 30%;
@@ -15,7 +20,8 @@ $color-grey: grey;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: rgb(234, 234, 234);
+  background-color: white;
+  border: 1px solid $backgroun-Pr-message;
   position: relative;
 
   width:$icon-size;
@@ -91,11 +97,11 @@ $color-grey: grey;
   }
 
   &:hover {
-    box-shadow: 0 0 5pt 0.5pt $backgroun-message;
+    box-shadow: 0 0 5pt 0.5pt $backgroun-Pr-message;
   }
 
   &:focus {
-    box-shadow: 0 0 5pt 2pt $backgroun-message;
+    box-shadow: 0 0 5pt 2pt $backgroun-Pr-message;
   }
 }
 
@@ -121,13 +127,13 @@ $color-grey: grey;
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 20px 10px;
+  padding: 10px;
   border-bottom: 1px solid $color-grey;
   cursor: pointer;
+  color: black;
 
   &--active {
-    background-color: $backgroun-message;
-    color: white;
+    background-color: $backgroun-Pr-message;
   }
 
   &__info {
@@ -145,8 +151,10 @@ $color-grey: grey;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  overflow: hidden;
 
   &__header {
+    height: 10vh;
     display: flex;
     padding: 20px;
     background-color: $backgroun-main;
@@ -155,5 +163,104 @@ $color-grey: grey;
 
   &__icon {
     margin-right: 20px;
+  }
+
+  &__container {
+    display: flex;
+    flex-grow: 1;
+    height: 75vh;
+    padding: 20px 0 20px 20px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: $backgroun-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px;
+    border-radius: 20px;
+    height: 40px;
+    outline: none;
+    border: 1px solid grey;  
+
+    
+    &:active, &:focus, &:hover {
+      outline: none;
+      border: 1px solid rgb(181, 179, 179);
+    }
+
+    &:hover {
+      box-shadow: 0 0 5pt 0.5pt $backgroun-Pr-message;
+    }
+
+    &:focus {
+      box-shadow: 0 0 5pt 2pt $backgroun-Pr-message;
+    }
+  }
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 15px 10px 0;
+
+  &__text {
+    background-color: $backgroun-Sc-message;
+    color: white;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
+
+    padding: 10px 20px;
+    border-radius: 5px;
+
+    &--fromMe {
+      background-color: $backgroun-Pr-message;
+      color: black;
+    }
+  }
+
+
+  &--fromMe {
+    align-self: flex-end;
+  }
+}
+
+html {
+  ::-webkit-scrollbar {
+    padding-right: 0;
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }

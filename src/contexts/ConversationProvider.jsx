@@ -14,7 +14,20 @@ export function ConversationProvider({ children, personId }) {
   const { contacts } = useContacts();
 
   function createConversations(recipients) {
-    setConversations((prevConversations) => [...prevConversations, { recipients, messages: [], selected: false }])
+    setConversations((prevConversations) => {
+      const isConversation = 
+      prevConversations.some(conversation => conversation.recipients
+        .join('') === recipients.join(''))
+
+        if (!isConversation) {
+          return [
+            ...prevConversations,
+            { recipients, messages: [], selected: false },
+          ]
+        }
+
+      return prevConversations;
+    })
   }
 
   const formattedConversations = conversations.map((conversation, index) => {
