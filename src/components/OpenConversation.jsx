@@ -56,6 +56,7 @@ export default function OpenConversation() {
             type='text'
             value={text}
             onChange={(e) => setText(e.target.value)}
+            style={{paddingLeft: '20px'}}
           />
           {/* <Button className="rounded-0" type="submit">Send</Button> */}
       </form>
